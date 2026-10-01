@@ -11,3 +11,14 @@ Thu Oct  1 10:12:03 PM UTC 2026:
  1 file changed, 5 insertions(+), 2 deletions(-)
  tests:  0|0
 2d15d3b
+Thu Oct  1 10:15:40 PM UTC 2026: 
+ graph.c | 23 ++++++++++++++++++-----
+ 1 file changed, 18 insertions(+), 5 deletions(-)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘addNode’:
+graph.c:46:23: error: ‘Graph’ has no member named ‘adjacentMap’; did you mean ‘adjacencyMap’?
+   46 |         map_insert(g->adjacentMap, copy_label, new_list);
+      |                       ^~~~~~~~~~~
+      |                       adjacencyMap
+744033f

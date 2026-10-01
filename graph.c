@@ -33,23 +33,35 @@ Graph* createGraph()
     return g;
 }
 
-void addNode(Graph* g, const char* label) {
+void addNode(Graph* g, const char* label)
+{
     if (!g || !label) return;
 
+    if (map_search(g->adjacencyMap, (void *) label) == NULL)
+    {
+        char *copy_label = (char *) malloc(strlen(label) + 1);
+        strcpy(copy_label, label);
+
+        List *new_list = list_create();
+        map_insert(g->adjacentMap, copy_label, new_list);
+    }
 }
 
-void addEdge(Graph* g, const char* src, const char* dest, int weight) {
+void addEdge(Graph* g, const char* src, const char* dest, int weight)
+{
     if (!g || !src || !dest) return;
 
 }
 
-List* getEdges(Graph* g, const char* label) {
+List* getEdges(Graph* g, const char* label)
+{
     if (!g || !label) return NULL;
 
     return NULL;
 }
 
-int getWeight(Graph* g, const char* label1, const char* label2) {
+int getWeight(Graph* g, const char* label1, const char* label2)
+{
     if (!g || !label1 || !label2) return -1;
 
     // Si no existe el origen o terminamos de iterar sin encontrar el destino
@@ -57,7 +69,8 @@ int getWeight(Graph* g, const char* label1, const char* label2) {
 }
 
 // Retorna una nueva List* que contiene elementos de tipo char* (las etiquetas)
-List* getAdjacentLabels(Graph* g, const char* label) {
+List* getAdjacentLabels(Graph* g, const char* label)
+{
     if (!g || !label) return NULL;
 
 
