@@ -98,8 +98,18 @@ List* getAdjacentLabels(Graph* g, const char* label)
 {
     if (!g || !label) return NULL;
 
+    List *edges = getEdges(g, label);
+    if (edges == NULL) return NULL;
 
-    return NULL; 
+    List *adj_labels = list_create();
+    Edge *current_edge = (Edge *) list_first(edges);
+
+    while (current_edge != NULL)
+    {
+        list_pushBack(adj_labels, current_edge->target);
+        current_edge = (Edge *)list_next(edges);
+    }
+    return adj_labels; 
 }
 
 void destroyGraph(Graph* g) {
