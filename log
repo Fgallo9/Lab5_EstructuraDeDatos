@@ -38,3 +38,15 @@ Thu Oct  1 11:45:50 PM UTC 2026:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 133b0d5
+Thu Oct  1 11:49:09 PM UTC 2026: 
+ graph.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘getWeight’:
+graph.c:77:9: error: ‘edge’ undeclared (first use in this function); did you mean ‘Edge’?
+   77 |     if (edge != NULL)
+      |         ^~~~
+      |         Edge
+graph.c:77:9: note: each undeclared identifier is reported only once for each function it appears in
+1757e88
