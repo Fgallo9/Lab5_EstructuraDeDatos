@@ -55,3 +55,26 @@ Thu Oct  1 11:49:29 PM UTC 2026:
  1 file changed, 1 insertion(+), 1 deletion(-)
  tests:  0|0
 660f1d1
+Thu Oct  1 11:51:42 PM UTC 2026: 
+ graph.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘addEdge’:
+graph.c:54:39: error: passing argument 1 of ‘map_search’ from incompatible pointer type [-Wincompatible-pointer-types]
+   54 |     List *edges = (List *) map_search(g, src);
+      |                                       ^
+      |                                       |
+      |                                       Graph *
+In file included from graph.c:8:
+map.h:22:26: note: expected ‘Map *’ but argument is of type ‘Graph *’
+   22 | MapPair *map_search(Map *map, void *key);
+      |                     ~~~~~^~~
+graph.c:54:42: error: passing argument 2 of ‘map_search’ discards ‘const’ qualifier from pointer target type [-Werror=discarded-qualifiers]
+   54 |     List *edges = (List *) map_search(g, src);
+      |                                          ^~~
+map.h:22:37: note: expected ‘void *’ but argument is of type ‘const char *’
+   22 | MapPair *map_search(Map *map, void *key);
+      |                               ~~~~~~^~~
+cc1: all warnings being treated as errors
+f455562
